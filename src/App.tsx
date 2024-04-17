@@ -1,4 +1,5 @@
 import Alert from "./components/Alert";
+import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Alert>
         There is no other <span className="h6">feeling </span> like that!
       </Alert>
+      <Button color="warning">Click Here!</Button>
     </>
   );
 }

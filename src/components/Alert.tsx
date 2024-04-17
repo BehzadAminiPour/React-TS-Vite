@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Alert = ({ children }: Props) => {
-  return <div className="alert alert-danger mt-5 mx-2 p-2">{children}</div>;
+  return <div className="alert alert-danger my-5 mx-2 p-2">{children}</div>;
 };
 
 export default Alert;
