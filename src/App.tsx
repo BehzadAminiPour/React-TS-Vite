@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <Navbar items={cartItems.length} />
-      <Cart cartItems={cartItems} />
+      <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
       <ListGroup cities={cities} heading="Cities" onSelectCity={handleSelect} />
       {showAlert && (
         <Alert onClick={() => setShowAlert(false)}>
