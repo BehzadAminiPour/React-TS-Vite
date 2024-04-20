@@ -5,6 +5,7 @@ import ListGroup from "./components/ListGroup";
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
+import Game from "./components/Game";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
@@ -39,6 +40,7 @@ function App() {
         Click Here!
       </Button>
       <Like onClick={() => console.log("Clicked")} />
+      <Game game={game.player.name} />
     </>
   );
 }
