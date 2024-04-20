@@ -24,7 +24,9 @@ function App() {
     console.log(city);
   };
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    setGame({ ...game, player: { name: "Bezi" } });
+  };
 
   return (
     <>
@@ -40,7 +42,7 @@ function App() {
         Click Here!
       </Button>
       <Like onClick={() => console.log("Clicked")} />
-      <Game game={game.player.name} />
+      <Game game={game.player.name} onGame={handleClick} />
     </>
   );
 }
