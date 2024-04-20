@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
+import Cart from "./components/Cart";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Cart />
       <ListGroup cities={cities} heading="Cities" onSelectCity={handleSelect} />
       {showAlert && (
         <Alert onClick={() => setShowAlert(false)}>
