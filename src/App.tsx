@@ -3,8 +3,10 @@ import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 import Like from "./components/Like";
+import Navbar from "./components/Navbar";
 
 function App() {
+  const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
   let cities = ["Barcelona", "Milan", "Munich", "Nants", "Tehran"];
   const handleSelect = (city: string) => {
     console.log(city);
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <ListGroup cities={cities} heading="Cities" onSelectCity={handleSelect} />
       {showAlert && (
         <Alert onClick={() => setShowAlert(false)}>
