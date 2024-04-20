@@ -8,11 +8,22 @@ import Cart from "./components/Cart";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const [game, setGame] = useState({
+    id: 1,
+    player: {
+      name: "John",
+    },
+  });
+
   let cities = ["Barcelona", "Milan", "Munich", "Nants", "Tehran"];
   const handleSelect = (city: string) => {
     console.log(city);
   };
-  const [showAlert, setShowAlert] = useState(false);
+
+  const handleClick = () => {};
 
   return (
     <>
