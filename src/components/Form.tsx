@@ -13,6 +13,8 @@ const Form = () => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     console.log(name, age);
+    setName("");
+    setAge("");
     // if (nameRef.current !== null) person.name = nameRef.current.value;
     // if (ageRef.current !== null) person.age = parseInt(ageRef.current.value);
     // console.log(person);
@@ -24,6 +26,7 @@ const Form = () => {
           Name :
         </label>
         <input
+          value={name}
           id="name"
           type="text"
           className="form-control" /* ref={nameRef} */
@@ -35,6 +38,7 @@ const Form = () => {
           Age :
         </label>
         <input
+          value={age}
           id="number"
           type="number"
           className="form-control"
