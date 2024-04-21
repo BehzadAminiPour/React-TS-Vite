@@ -13,6 +13,9 @@ const Form = () => {
         </label>
         <input id="number" type="number" className="form-control" />
       </div>
+      <button type="submit" className="btn btn-success">
+        Submit
+      </button>
     </form>
   );
 };
