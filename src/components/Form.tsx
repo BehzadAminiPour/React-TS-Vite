@@ -1,8 +1,10 @@
-import { FormEvent, useState, useRef } from "react";
-
+// import { FormEvent, useState /* useRef*/ } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 const Form = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data: FieldValues) => console.log(data);
+  // const [name, setName] = useState("");
+  // const [age, setAge] = useState("");
 
   //   const nameRef = useRef<HTMLInputElement>(null);
   //   const ageRef = useRef<HTMLInputElement>(null);
@@ -10,27 +12,26 @@ const Form = () => {
   //     name: "",
   //     age: 0,
   //   };
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    console.log(name, age);
-    setName("");
-    setAge("");
-    // if (nameRef.current !== null) person.name = nameRef.current.value;
-    // if (ageRef.current !== null) person.age = parseInt(ageRef.current.value);
-    // console.log(person);
-  };
+  // const handleSubmit = (event: FormEvent) => {
+  //   event.preventDefault();
+  //   console.log(name, age);
+  //   setName("");
+  //   setAge("");
+  //   // if (nameRef.current !== null) person.name = nameRef.current.value;
+  //   // if (ageRef.current !== null) person.age = parseInt(ageRef.current.value);
+  //   // console.log(person);
+  // };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Name :
         </label>
         <input
-          value={name}
+          {...register("name")}
           id="name"
           type="text"
           className="form-control" /* ref={nameRef} */
-          onChange={(event) => setName(event.target.value)}
         />
       </div>
       <div className="mb-3">
@@ -38,11 +39,10 @@ const Form = () => {
           Age :
         </label>
         <input
-          value={age}
+          {...register("age")}
           id="number"
           type="number"
           className="form-control"
-          onChange={(event) => setAge(event.target.value)}
           /* ref={ageRef} */
         />
       </div>
