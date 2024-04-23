@@ -9,7 +9,7 @@ const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FormData>();
   const onSubmit = (data: FieldValues) => console.log(data);
   // const [name, setName] = useState("");
@@ -67,7 +67,7 @@ const Form = () => {
           <p className="text-danger">The age must be at least 1 character!</p>
         )}
       </div>
-      <button type="submit" className="btn btn-success">
+      <button disabled={!isValid} type="submit" className="btn btn-success">
         Submit
       </button>
     </form>
