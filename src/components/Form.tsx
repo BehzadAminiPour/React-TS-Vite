@@ -60,6 +60,12 @@ const Form = () => {
           className="form-control"
           /* ref={ageRef} */
         />
+        {errors.age?.type === "required" && (
+          <p className="text-danger">The age field is required!</p>
+        )}
+        {errors.age?.type === "minLength" && (
+          <p className="text-danger">The age must be at least 1 character!</p>
+        )}
       </div>
       <button type="submit" className="btn btn-success">
         Submit
