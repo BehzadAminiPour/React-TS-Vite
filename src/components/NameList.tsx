@@ -39,6 +39,19 @@ const NameList = () => {
       });
   };
 
+  const handleUpdateUser = (user: Users) => {
+    const originalUsers = [...users];
+    const updatedUser = { ...user, name: user.name + "!" };
+    setUsers(users.map((u) => (u.id === user.id ? updatedUser : u)));
+
+    axios
+      .patch("https://jsonplaceholder.typicode.com/users/" + user.id)
+      .catch((err) => {
+        setError(err.message);
+        setUsers(originalUsers);
+      });
+  };
+
   const handleAddUser = () => {
     const originalUsers = [...users];
     const newUser = { id: 11, name: "Behzad" };
@@ -70,12 +83,20 @@ const NameList = () => {
               className="list-group-item d-flex justify-content-between"
             >
               {user.name}
-              <button
-                onClick={() => handleDelete(user)}
-                className="btn btn-outline-danger btn-sm"
-              >
-                Delete
-              </button>
+              <div>
+                <button
+                  onClick={() => handleUpdateUser(user)}
+                  className="btn btn-outline-info btn-sm mx-1"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => handleDelete(user)}
+                  className="btn btn-outline-danger btn-sm"
+                >
+                  Delete
+                </button>
+              </div>
             </li>
           ))}
         </ul>
