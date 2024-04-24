@@ -28,7 +28,6 @@ const NameList = () => {
       });
     return () => controller.abort();
   }, []);
-
   const handleDelete = (user: Users) => {
     const originalUsers = [...users];
     setUsers(users.filter((u) => u.id !== user.id));
@@ -40,9 +39,26 @@ const NameList = () => {
       });
   };
 
+  const handleAddUser = () => {
+    const originalUsers = [...users];
+    const newUser = { id: 11, name: "Behzad" };
+    setUsers([newUser, ...users]);
+
+    axios
+      .post("https://jsonplaceholder.typicode.com/users", newUser)
+      .then(({ data: savedUser }) => setUsers([savedUser, ...users]))
+      .catch((err) => {
+        setError(err.message);
+        setUsers(originalUsers);
+      });
+  };
+
   return (
     <div className="bg-info p-1">
       <h2>Users : </h2>
+      <button onClick={handleAddUser} className="btn btn-success mb-1 btn-sm">
+        Add+
+      </button>
       {error && <p className="text-danger">{error}</p>}
       {isLoading ? (
         <div className="spinner-border"></div>
