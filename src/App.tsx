@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import Game from "./components/Game";
 import Form from "./components/Form";
+import NameList from "./components/NameList";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
@@ -33,6 +34,7 @@ function App() {
     <>
       <Navbar items={cartItems.length} />
       <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+      <NameList />
       <Form />
       <ListGroup cities={cities} heading="Cities" onSelectCity={handleSelect} />
       {showAlert && (
