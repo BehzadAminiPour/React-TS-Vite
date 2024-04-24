@@ -28,6 +28,18 @@ const NameList = () => {
       });
     return () => controller.abort();
   }, []);
+
+  const handleDelete = (user: Users) => {
+    const originalUsers = [...users];
+    setUsers(users.filter((u) => u.id !== user.id));
+    axios
+      .delete("https://jsonplaceholder.typicode.com/users/" + user.id)
+      .catch((err) => {
+        setError(err.message);
+        setUsers(originalUsers);
+      });
+  };
+
   return (
     <div className="bg-info p-1">
       <h2>Users : </h2>
@@ -35,9 +47,20 @@ const NameList = () => {
       {isLoading ? (
         <div className="spinner-border"></div>
       ) : (
-        <ul>
+        <ul className="list-group">
           {users.map((user) => (
-            <li key={user.id}>{user.name}</li>
+            <li
+              key={user.id}
+              className="list-group-item d-flex justify-content-between"
+            >
+              {user.name}
+              <button
+                onClick={() => handleDelete(user)}
+                className="btn btn-outline-danger btn-sm"
+              >
+                Delete
+              </button>
+            </li>
           ))}
         </ul>
       )}
