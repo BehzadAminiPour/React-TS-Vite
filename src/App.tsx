@@ -12,6 +12,7 @@ import GamePage from "./pages/GamePage";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
@@ -36,7 +37,9 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar items={cartItems.length} />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="/cart"
           element={
@@ -64,7 +67,6 @@ function App() {
           element={<GamePage game={game.player.name} onGame={handleClick} />}
         />
       </Routes>
-      <Navbar items={cartItems.length} />
 
       {showAlert && (
         <Alert onClick={() => setShowAlert(false)}>
