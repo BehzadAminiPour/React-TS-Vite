@@ -4,10 +4,10 @@ import CartPage from "./pages/CartPage";
 import NameListPage from "./pages/NameListPage";
 import FormPage from "./pages/FormPage";
 import ListGroupPage from "./pages/ListGroup";
+import LikePage from "./pages/LikePage";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 
-import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 
 import Game from "./components/Game";
@@ -54,6 +54,10 @@ function App() {
             />
           }
         />
+        <Route
+          path="/like"
+          element={<LikePage onClick={() => console.log("Clicked")} />}
+        />
       </Routes>
       <Navbar items={cartItems.length} />
 
@@ -65,7 +69,7 @@ function App() {
       <Button onClick={() => setShowAlert(true)} color="warning">
         Click Here!
       </Button>
-      <Like onClick={() => console.log("Clicked")} />
+
       <Game game={game.player.name} onGame={handleClick} />
     </BrowserRouter>
   );
