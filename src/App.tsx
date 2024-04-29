@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import CartPage from "./pages/CartPage";
+import NameListPage from "./pages/NameListPage";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
@@ -9,7 +10,6 @@ import Navbar from "./components/Navbar";
 
 import Game from "./components/Game";
 import Form from "./components/Form";
-import NameList from "./components/NameList";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
@@ -41,10 +41,10 @@ function App() {
             <CartPage cartItems={cartItems} onClear={() => setCartItems([])} />
           }
         />
+        <Route path="/namelist" element={<NameListPage />} />
       </Routes>
       <Navbar items={cartItems.length} />
 
-      <NameList />
       <Form />
       <ListGroup cities={cities} heading="Cities" onSelectCity={handleSelect} />
       {showAlert && (
