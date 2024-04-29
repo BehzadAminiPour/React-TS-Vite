@@ -1,10 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import CartPage from "./pages/CartPage";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
-import Cart from "./components/Cart";
+
 import Game from "./components/Game";
 import Form from "./components/Form";
 import NameList from "./components/NameList";
@@ -31,9 +33,17 @@ function App() {
   };
 
   return (
-    <>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/cart"
+          element={
+            <CartPage cartItems={cartItems} onClear={() => setCartItems([])} />
+          }
+        />
+      </Routes>
       <Navbar items={cartItems.length} />
-      <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+
       <NameList />
       <Form />
       <ListGroup cities={cities} heading="Cities" onSelectCity={handleSelect} />
@@ -47,7 +57,7 @@ function App() {
       </Button>
       <Like onClick={() => console.log("Clicked")} />
       <Game game={game.player.name} onGame={handleClick} />
-    </>
+    </BrowserRouter>
   );
 }
 
