@@ -3,9 +3,10 @@ import { useState } from "react";
 import CartPage from "./pages/CartPage";
 import NameListPage from "./pages/NameListPage";
 import FormPage from "./pages/FormPage";
+import ListGroupPage from "./pages/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
-import ListGroup from "./components/ListGroup";
+
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 
@@ -43,10 +44,19 @@ function App() {
         />
         <Route path="/namelist" element={<NameListPage />} />
         <Route path="/form" element={<FormPage />} />
+        <Route
+          path="/listgroup"
+          element={
+            <ListGroupPage
+              cities={cities}
+              heading="Cities"
+              onSelectCity={handleSelect}
+            />
+          }
+        />
       </Routes>
       <Navbar items={cartItems.length} />
 
-      <ListGroup cities={cities} heading="Cities" onSelectCity={handleSelect} />
       {showAlert && (
         <Alert onClick={() => setShowAlert(false)}>
           There is no other <span className="h6">feeling </span> like that!
