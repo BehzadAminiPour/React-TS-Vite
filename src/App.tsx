@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 // Pages
+import SharedLayout from "./pages/SharedLayout";
 import CartPage from "./pages/CartPage";
 import NameListPage from "./pages/NameListPage";
 import FormPage from "./pages/FormPage";
@@ -8,15 +9,10 @@ import ListGroupPage from "./pages/ListGroup";
 import LikePage from "./pages/LikePage";
 import GamePage from "./pages/GamePage";
 import ErrorPage from "./pages/ErrorPage";
-//Components
-import Alert from "./components/Alert";
-import Button from "./components/Button";
 import Home from "./pages/Home";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
-
-  const [showAlert, setShowAlert] = useState(false);
 
   const [game, setGame] = useState({
     id: 1,
@@ -37,7 +33,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home items={cartItems.length} />}>
+        <Route path="/" element={<SharedLayout items={cartItems.length} />}>
+          <Route index element={<Home />} />
           <Route
             path="/cart"
             element={
@@ -70,15 +67,6 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
-
-      {showAlert && (
-        <Alert onClick={() => setShowAlert(false)}>
-          There is no other <span className="h6">feeling </span> like that!
-        </Alert>
-      )}
-      <Button onClick={() => setShowAlert(true)} color="warning">
-        Click Here!
-      </Button>
     </BrowserRouter>
   );
 }
