@@ -7,11 +7,10 @@ import FormPage from "./pages/FormPage";
 import ListGroupPage from "./pages/ListGroup";
 import LikePage from "./pages/LikePage";
 import GamePage from "./pages/GamePage";
-
+import ErrorPage from "./pages/ErrorPage";
 //Components
 import Alert from "./components/Alert";
 import Button from "./components/Button";
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
 function App() {
@@ -37,35 +36,39 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar items={cartItems.length} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/cart"
-          element={
-            <CartPage cartItems={cartItems} onClear={() => setCartItems([])} />
-          }
-        />
-        <Route path="/namelist" element={<NameListPage />} />
-        <Route path="/form" element={<FormPage />} />
-        <Route
-          path="/listgroup"
-          element={
-            <ListGroupPage
-              cities={cities}
-              heading="Cities"
-              onSelectCity={handleSelect}
-            />
-          }
-        />
-        <Route
-          path="/like"
-          element={<LikePage onClick={() => console.log("Clicked")} />}
-        />
-        <Route
-          path="/game"
-          element={<GamePage game={game.player.name} onGame={handleClick} />}
-        />
+        <Route path="/" element={<Home items={cartItems.length} />}>
+          <Route
+            path="/cart"
+            element={
+              <CartPage
+                cartItems={cartItems}
+                onClear={() => setCartItems([])}
+              />
+            }
+          />
+          <Route path="/namelist" element={<NameListPage />} />
+          <Route path="/form" element={<FormPage />} />
+          <Route
+            path="/listgroup"
+            element={
+              <ListGroupPage
+                cities={cities}
+                heading="Cities"
+                onSelectCity={handleSelect}
+              />
+            }
+          />
+          <Route
+            path="/like"
+            element={<LikePage onClick={() => console.log("Clicked")} />}
+          />
+          <Route
+            path="/game"
+            element={<GamePage game={game.player.name} onGame={handleClick} />}
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
       </Routes>
 
       {showAlert && (
