@@ -1,16 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+// Pages
 import CartPage from "./pages/CartPage";
 import NameListPage from "./pages/NameListPage";
 import FormPage from "./pages/FormPage";
 import ListGroupPage from "./pages/ListGroup";
 import LikePage from "./pages/LikePage";
+import GamePage from "./pages/GamePage";
+
+//Components
 import Alert from "./components/Alert";
 import Button from "./components/Button";
-
 import Navbar from "./components/Navbar";
-
-import Game from "./components/Game";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
@@ -58,6 +59,10 @@ function App() {
           path="/like"
           element={<LikePage onClick={() => console.log("Clicked")} />}
         />
+        <Route
+          path="/game"
+          element={<GamePage game={game.player.name} onGame={handleClick} />}
+        />
       </Routes>
       <Navbar items={cartItems.length} />
 
@@ -69,8 +74,6 @@ function App() {
       <Button onClick={() => setShowAlert(true)} color="warning">
         Click Here!
       </Button>
-
-      <Game game={game.player.name} onGame={handleClick} />
     </BrowserRouter>
   );
 }
