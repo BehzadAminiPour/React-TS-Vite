@@ -13,11 +13,12 @@ import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 import products from "./data";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   const [cartItems, setCartItems] = useState(products);
   const [formData, setFormData] = useState<FormData | null>(null);
-  console.log(formData);
+
   const handleFormSubmit = (data: FormData) => {
     setFormData(data); // Set the form data received from the child component
   };
@@ -78,7 +79,11 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
           <Route
             path="/dashboard"
-            element={<Dashboard formData={formData} />}
+            element={
+              <ProtectedRoute formData={formData}>
+                <Dashboard formData={formData} />
+              </ProtectedRoute>
+            }
           />
         </Route>
       </Routes>
