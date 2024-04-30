@@ -44,6 +44,11 @@ const Navbar = ({ items }: Props) => {
               Game
             </Link>
           </li>
+          <li className="nav-item ms-2">
+            <Link to="/dashboard" className="nav-link">
+              Dashboard
+            </Link>
+          </li>
         </ul>
         <li className="nav-item ms-2 d-flex">Numbur of items : {items}</li>
       </div>

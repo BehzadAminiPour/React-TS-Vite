@@ -1,5 +1,6 @@
 // import { FormEvent, useState /* useRef*/ } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 interface FormData {
   name: string;
@@ -16,7 +17,11 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<FormData>();
-  const handleFormSubmit = (data: FormData) => onSubmit(data);
+  const navigate = useNavigate();
+  const handleFormSubmit = (data: FormData) => {
+    onSubmit(data);
+    navigate("/dashboard");
+  };
   // const [name, setName] = useState("");
   // const [age, setAge] = useState("");
 

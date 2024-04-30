@@ -12,6 +12,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 import products from "./data";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [cartItems, setCartItems] = useState(products);
@@ -75,6 +76,10 @@ function App() {
             element={<GamePage game={game.player.name} onGame={handleClick} />}
           />
           <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard formData={formData} />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
