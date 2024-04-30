@@ -11,8 +11,9 @@ const Cart = ({ cartItems, onClear }: Props) => {
       <h2>List of products : </h2>
       <div>
         {cartItems.map((item) => (
-          <Link to={`/cart/${item.id}`} key={item.id} className="nav-link">
-            {item.name}
+          <Link to={`/cart/${item.id}`} key={item.id} className="nav-link mb-5">
+            <p>{item.name}</p>
+            <button className="btn btn-sm btn-info">More...</button>
           </Link>
         ))}
       </div>

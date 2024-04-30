@@ -20,7 +20,7 @@ function App() {
   const [formData, setFormData] = useState<FormData | null>(null);
 
   const handleFormSubmit = (data: FormData) => {
-    setFormData(data); // Set the form data received from the child component
+    setFormData(data);
   };
   const [game, setGame] = useState({
     id: 1,
