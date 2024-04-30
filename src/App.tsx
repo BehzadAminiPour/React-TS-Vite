@@ -11,9 +11,10 @@ import GamePage from "./pages/GamePage";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
+import products from "./data";
 
 function App() {
-  const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
+  const [cartItems, setCartItems] = useState(products);
 
   const [game, setGame] = useState({
     id: 1,
