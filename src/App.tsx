@@ -15,7 +15,11 @@ import products from "./data";
 
 function App() {
   const [cartItems, setCartItems] = useState(products);
-
+  const [formData, setFormData] = useState<FormData | null>(null);
+  console.log(formData);
+  const handleFormSubmit = (data: FormData) => {
+    setFormData(data); // Set the form data received from the child component
+  };
   const [game, setGame] = useState({
     id: 1,
     player: {
@@ -48,7 +52,10 @@ function App() {
           />
           <Route path="/cart/:cartId" element={<SingleProduct />} />
           <Route path="/namelist" element={<NameListPage />} />
-          <Route path="/form" element={<FormPage />} />
+          <Route
+            path="/form"
+            element={<FormPage onSubmit={handleFormSubmit} />}
+          />
           <Route
             path="/listgroup"
             element={

@@ -1,17 +1,22 @@
 // import { FormEvent, useState /* useRef*/ } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import React from "react";
 interface FormData {
   name: string;
   age: number;
 }
 
-const Form = () => {
+interface FormProps {
+  onSubmit: (data: FormData) => void;
+}
+
+const Form: React.FC<FormProps> = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<FormData>();
-  const onSubmit = (data: FieldValues) => console.log(data);
+  const handleFormSubmit = (data: FormData) => onSubmit(data);
   // const [name, setName] = useState("");
   // const [age, setAge] = useState("");
 
@@ -31,7 +36,7 @@ const Form = () => {
   //   // console.log(person);
   // };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(handleFormSubmit)}>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Name :
