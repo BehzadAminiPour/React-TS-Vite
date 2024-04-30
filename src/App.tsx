@@ -10,6 +10,7 @@ import LikePage from "./pages/LikePage";
 import GamePage from "./pages/GamePage";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
   const [cartItems, setCartItems] = useState(["product 1", "product 2"]);
@@ -44,6 +45,7 @@ function App() {
               />
             }
           />
+          <Route path="/cart/:cartId" element={<SingleProduct />} />
           <Route path="/namelist" element={<NameListPage />} />
           <Route path="/form" element={<FormPage />} />
           <Route

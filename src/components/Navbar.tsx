@@ -9,43 +9,43 @@ const Navbar = ({ items }: Props) => {
     <nav className="navbar bg-secondary p-1 navbar-expand-lg">
       <div className="container-fluid">
         <ul className="navbar-nav">
-          <li className="nav-item">
+          <li className="nav-item ms-2">
             <Link to="/" className="nav-link">
               Home
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ms-2">
             <Link to="/cart" className="nav-link">
               Cart
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ms-2">
             <Link to="/namelist" className="nav-link">
               Name List
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ms-2">
             <Link to="/form" className="nav-link">
               Form
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ms-2">
             <Link to="/listgroup" className="nav-link">
               List Group
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ms-2">
             <Link to="/like" className="nav-link">
               Like
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ms-2">
             <Link to="/game" className="nav-link">
               Game
             </Link>
           </li>
         </ul>
-        <li className="nav-item d-flex">Numbur of items : {items}</li>
+        <li className="nav-item ms-2 d-flex">Numbur of items : {items}</li>
       </div>
     </nav>
   );
