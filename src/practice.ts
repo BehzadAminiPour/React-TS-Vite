@@ -42,3 +42,35 @@ cred = {
   password: 8201,
   email: "sth@sth",
 };
+
+interface AppUser {
+  name: string;
+  hobbies: string[];
+}
+
+interface AvailableUser extends Credentials, AppUser {}
+
+let newUser: AvailableUser;
+
+newUser = {
+  password: 555,
+  email: "dhfhdsf",
+  name: "Bzi",
+  hobbies: ["Codding", "sport"],
+};
+
+type UserPlus = {
+  email: string;
+};
+
+type MainUser = UserPlus & User;
+
+let anotherUser: MainUser;
+
+anotherUser = {
+  name: "sss",
+  age: 55,
+  mariage: true,
+  id: 555,
+  email: "hsdfh@gmail.com",
+};
