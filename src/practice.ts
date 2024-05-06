@@ -30,3 +30,15 @@ function calculator(a: number, b: number, calcFn: AddFn) {
 }
 console.log(calculator(1, 5, add));
 console.log(add(2, 3));
+
+interface Credentials {
+  password: number;
+  email: string;
+}
+
+let cred: Credentials;
+
+cred = {
+  password: 8201,
+  email: "sth@sth",
+};
