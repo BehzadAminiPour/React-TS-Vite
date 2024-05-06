@@ -60,7 +60,7 @@ newUser = {
 };
 
 type UserPlus = {
-  email: string;
+  email: string | number;
 };
 
 type MainUser = UserPlus & User;
