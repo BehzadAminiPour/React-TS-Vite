@@ -75,6 +75,12 @@ anotherUser = {
   email: "hsdfh@gmail.com",
 };
 
-let role: "admin" | "user" | "guest";
+type Role = "admin" | "user" | "guest";
 
-role = "admin";
+function performAction(action: string | number, role: Role) {
+  if (role === "admin") {
+    console.log("Admin is now online", action);
+  }
+}
+
+performAction(1, "admin");
