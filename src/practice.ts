@@ -84,3 +84,14 @@ function performAction(action: string | number, role: Role) {
 }
 
 performAction(1, "admin");
+
+type DataStorage<T> = {
+  storage: T[];
+  add: (data: T) => void;
+};
+
+const userStorage: DataStorage<User> = {
+  storage: [{ name: "Behzad", age: 36, id: 5689, mariage: false }],
+  add() {},
+};
+console.log(userStorage.storage);
