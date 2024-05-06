@@ -18,11 +18,15 @@ hobbies = ["sports", "games", "learning", 1];
 
 function add(a: number, b: number) {
   const result = a + b;
-  console.log(result);
-}
-add(1, 5);
-
-function plus(a: number, b: number) {
-  const result = a + b;
   return result;
 }
+
+function calculator(
+  a: number,
+  b: number,
+  calcFn: (a: number, b: number) => number
+) {
+  return calcFn(a, b);
+}
+console.log(calculator(1, 5, add));
+console.log(add(2, 3));
