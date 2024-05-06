@@ -74,3 +74,7 @@ anotherUser = {
   id: 555,
   email: "hsdfh@gmail.com",
 };
+
+let role: "admin" | "user" | "guest";
+
+role = "admin";
