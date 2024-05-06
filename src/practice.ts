@@ -11,3 +11,7 @@ user = {
   mariage: false,
   id: 8201,
 };
+
+let hobbies: (string | number)[];
+// let hobbies: Array<string>;
+hobbies = ["sports", "games", "learning", 1];
