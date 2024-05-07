@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 interface Props {
-  cartItems: { id: number; name: string }[];
+  cartItems: { id: number | string; name: string; image: string }[];
   onClear: () => void;
 }
 
