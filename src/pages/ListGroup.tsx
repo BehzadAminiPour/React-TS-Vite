@@ -1,12 +1,20 @@
 import { useState } from "react";
 
-interface Props {
+// interface Props {
+//   cities: string[];
+//   heading: string;
+//   onSelectCity: (city: string) => void;
+// }
+
+function ListGroup({
+  cities,
+  heading,
+  onSelectCity,
+}: {
   cities: string[];
   heading: string;
   onSelectCity: (city: string) => void;
-}
-
-function ListGroup({ cities, heading, onSelectCity }: Props) {
+}) {
   //   cities = [];
   const [selectedCity, setSelectedCity] = useState(-1);
 
